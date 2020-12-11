@@ -1,1 +1,22 @@
-<p>header works!</p>
+<div class="container-full-width">
+    <mat-toolbar>
+        <span>Taste-Box</span>
+        <div>
+            <form (submit)="onSubmit()" [formGroup]="searchForm">
+                <mat-form-field>
+                    <mat-icon matPrefix>search</mat-icon>
+                    <input type="text" matInput placeholder="Search for restaurants">
+                </mat-form-field>
+                <button type="submit" class="btn" mat-raised-button>Search</button>
+
+            </form>
+        </div>
+        <div>
+            <button mat-icon-button class="btn">
+                <mat-icon>shopping_cart</mat-icon>
+            </button>
+        </div>
+
+
+    </mat-toolbar>
+</div>
