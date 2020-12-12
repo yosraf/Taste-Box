@@ -1,3 +1,14 @@
 <app-header></app-header>
-<p>home works!</p>
+<div class="container home-content">
+    <div class="d-flex">
+        <mat-chip-list>
+            <mat-chip *ngFor="let categorie of categories" [ngClass]="categorie">
+                {{categorie}}
+            </mat-chip>
+        </mat-chip-list>
+
+    </div>
+    <mat-divider></mat-divider>
+
+</div>
 <app-footer></app-footer>

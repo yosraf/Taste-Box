@@ -1,0 +1,42 @@
+@import "../../colors.scss";
+.home-content{
+    padding-top: 2%;
+}
+mat-divider{
+    margin-top: 1%;
+    text-align: center;
+}
+mat-chip{
+    width: 100px;
+    color: white !important;
+}
+.Meats{
+background-color: $flesh;
+}
+.Pasta{
+    background-color: $skwach;
+
+}
+.Pizza{
+    background-color: $melon;
+
+
+}
+.Sandwichs{
+    background-color: $orchid;
+
+
+}
+.Burgers{
+    background-color: $peach;
+
+}
+.Salads{
+    background-color: $sumertime;
+
+
+}
+.Grills{
+    background-color: $rosy;
+
+}
