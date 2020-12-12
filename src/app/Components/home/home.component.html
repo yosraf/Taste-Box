@@ -2,13 +2,33 @@
 <div class="container home-content">
     <div class="d-flex">
         <mat-chip-list>
-            <mat-chip *ngFor="let categorie of categories" [ngClass]="categorie">
+            <mat-chip *ngFor="let categorie of categories" [ngClass]="categorie" (click)="filter(categorie)">
                 {{categorie}}
             </mat-chip>
         </mat-chip-list>
 
     </div>
     <mat-divider></mat-divider>
+
+    <div class="d-flex align-content-start  flex-wrap">
+        <mat-card class="ml-auto" *ngFor="let food of foodList">
+            <mat-card-header>
+                <div mat-card-avatar class="card">
+                </div>
+                <mat-card-title>{{food.name}}</mat-card-title>
+                <mat-card-subtitle>{{food.restaurent}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="food.image">
+            <mat-card-actions class="d-flex justify-content-end">
+                <button class="btn favorite" mat-button>
+                    <mat-icon>favorite_border</mat-icon>
+                </button>
+                <button class="btn add" mat-button>
+                    <mat-icon>add_shopping_cart</mat-icon>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
 
 </div>
 <app-footer></app-footer>

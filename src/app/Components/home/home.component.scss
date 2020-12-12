@@ -4,11 +4,13 @@
 }
 mat-divider{
     margin-top: 1%;
+    margin-bottom: 1%;
     text-align: center;
 }
 mat-chip{
     width: 100px;
     color: white !important;
+    font-size: 16px;
 }
 .Meats{
 background-color: $flesh;
@@ -39,4 +41,26 @@ background-color: $flesh;
 .Grills{
     background-color: $rosy;
 
+}
+.card{
+    background-image: url("https://pbs.twimg.com/media/EUU6kHiUMAAcOZs.png");
+    background-size: cover;
+    border-color: $orange;
+
+}
+mat-card{
+    width: 300px;
+    margin-top: 1%;
+    border: 1px solid $faded-orange
+}
+img{
+    height: 200px;
+}
+.favorite{
+    color: $red;
+    font-size: 16px;
+}
+.add{
+    color: $blue;
+    font-size: 16px;
 }
