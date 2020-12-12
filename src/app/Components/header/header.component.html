@@ -1,18 +1,18 @@
-<div class="container-full-width">
-    <mat-toolbar>
+<div class="container-full-width ">
+    <mat-toolbar class="d-flex justify-content-between">
         <span>Taste-Box</span>
         <div>
             <form (submit)="onSubmit()" [formGroup]="searchForm">
-                <mat-form-field>
-                    <mat-icon matPrefix>search</mat-icon>
+                <mat-form-field appearance="outline">
+                    <mat-icon matPrefix class="search-icon">search</mat-icon>
                     <input type="text" matInput placeholder="Search for restaurants">
                 </mat-form-field>
-                <button type="submit" class="btn" mat-raised-button>Search</button>
+                <button type="submit" class="btn search-btn" mat-raised-button>Search</button>
 
             </form>
         </div>
         <div>
-            <button mat-icon-button class="btn">
+            <button mat-icon-button class="btn btn-cart"  mat-raised-button>
                 <mat-icon>shopping_cart</mat-icon>
             </button>
         </div>
