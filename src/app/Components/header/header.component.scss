@@ -5,19 +5,16 @@
       box-shadow: 5px 3px 5px #e6e2e2;
 
 }
-.search-btn{
-    border-color: $orange;
-    color: $orange;
-    z-index: 10;
-}
-.search-btn:hover{
-    background-color: $orange;
-    color: wheat;
-    z-index: 10;
-}
-.search-icon{
-    font-size: 20px;
-    color:$faded-orange;
+.logo{
+    font-size: 30px;
+
+    mat-icon{
+        color:$orange;
+    }
+    span{
+        margin-left: 10px;
+        color:$faded-orange;
+    }
 }
 .btn-cart{
     border-color: $grey;
@@ -25,12 +22,10 @@
     z-index: 10;
 }
 .btn-cart :hover{
-    border-color: $orange;
     color: $orange;
     z-index: 10;
 }
-mat-form-field-appearance-outline mat-form-field-infix{
-    padding: 0 !important;
-    width: 20% !important;
-
+span{
+    font-size: 26px;
 }
+

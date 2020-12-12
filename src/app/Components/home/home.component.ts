@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FoodService } from 'src/app/Services/food.service';
 
 @Component({
   selector: 'app-home',
@@ -18,8 +19,9 @@ export class HomeComponent implements OnInit {
     "Grills"
   ];
   foodList = []
+  selectedItems =0;
 
-  constructor() { }
+  constructor(private service: FoodService) { }
   filter(categorie: string) {
     if (categorie === "All") {
       this.initFoodList();
@@ -36,48 +38,63 @@ export class HomeComponent implements OnInit {
         "categorie": "Pizza",
         "restaurent": "Pizza hot",
         "name": "Neapolitan Pizza",
-        "price": "",
-        "image": "https://cdnimg.webstaurantstore.com/uploads/buying_guide/2014/11/pizzatypes-margherita-.jpg"
+        "image": "https://cdnimg.webstaurantstore.com/uploads/buying_guide/2014/11/pizzatypes-margherita-.jpg",
+        "state": false
       },
       {
         "categorie": "Pizza",
         "restaurent": "Pizza hot",
         "name": "Chicago Pizza",
-        "price": "",
-        "image": "https://cdnimg.webstaurantstore.com/uploads/buying_guide/2014/11/pizzatypes-deepdish.jpg"
+        "image": "https://cdnimg.webstaurantstore.com/uploads/buying_guide/2014/11/pizzatypes-deepdish.jpg",
+        "state": false
+
       },
       {
         "categorie": "Pizza",
         "restaurent": "Pizza hot",
         "name": "California Pizza",
-        "price": "",
-        "image": "https://cdnimg.webstaurantstore.com/uploads/buying_guide/2014/11/pizzatypes-gourmet.jpg"
+        "image": "https://cdnimg.webstaurantstore.com/uploads/buying_guide/2014/11/pizzatypes-gourmet.jpg",
+        "state": false
+
       },
       {
         "categorie": "Salads",
         "restaurent": "Salad",
         "name": "Caesar Salad",
         "price": "",
-        "image": "https://theurbantandoor.com/wp-content/uploads/2019/11/caesar-salad.jpg"
+        "image": "https://theurbantandoor.com/wp-content/uploads/2019/11/caesar-salad.jpg",
+        "state": false
       },
       {
         "categorie": "Salads",
         "restaurent": "Salad",
         "name": "Nicoise Salad",
-        "price": "",
-        "image": "https://theurbantandoor.com/wp-content/uploads/2019/11/nicoise-salad.jpg"
+        "image": "https://theurbantandoor.com/wp-content/uploads/2019/11/nicoise-salad.jpg",
+        "state": false
       },
       {
         "categorie": "Salads",
         "restaurent": "Salad",
         "name": "BBQ Potato Salad",
-        "price": "",
-        "image": "https://theurbantandoor.com/wp-content/uploads/2019/11/bbq-potato-salad.jpg"
+        "image": "https://theurbantandoor.com/wp-content/uploads/2019/11/bbq-potato-salad.jpg",
+        "state": false
       }
     ]
   }
   ngOnInit(): void {
     this.initFoodList()
+  }
+  addToCart(name: string){
+    this.selectedItems ++;
+    this.service.addToCart(this.selectedItems);
+  this.foodList.find(food=> food.name === name).state = true;
+
+  }
+  removeFromCart(name: string){
+    this.selectedItems --;
+    this.service.addToCart(this.selectedItems);
+  this.foodList.find(food=> food.name === name).state = false;
+
   }
 
 }

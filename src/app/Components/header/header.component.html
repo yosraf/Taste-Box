@@ -1,18 +1,13 @@
 <div class="container-full-width ">
     <mat-toolbar class="d-flex justify-content-between">
-        <span>Taste-Box</span>
-        <div>
-            <form (submit)="onSubmit()" [formGroup]="searchForm">
-                <mat-form-field appearance="outline">
-                    <mat-icon matPrefix class="search-icon">search</mat-icon>
-                    <input type="text" matInput placeholder="Search for restaurants">
-                </mat-form-field>
-                <button type="submit" class="btn search-btn" mat-raised-button>Search</button>
-
-            </form>
+        <div class="logo ">
+            <mat-icon>restaurant_menu</mat-icon>
+            <span>Taste-Box</span>
         </div>
+
         <div>
-            <button mat-icon-button class="btn btn-cart"  mat-raised-button>
+            <button mat-icon-button class="btn btn-cart" mat-raised-button>
+                <span *ngIf="selectedItems >0">{{selectedItems}}</span>
                 <mat-icon>shopping_cart</mat-icon>
             </button>
         </div>

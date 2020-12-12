@@ -10,8 +10,8 @@
     </div>
     <mat-divider></mat-divider>
 
-    <div class="d-flex align-content-start  flex-wrap">
-        <mat-card class="ml-auto" *ngFor="let food of foodList">
+    <div class="d-flex align-content-start  flex-wrap" *ngIf="foodList.length >0 else empty;">
+        <mat-card class="ml-auto" *ngFor="let food of foodList; let i = index">
             <mat-card-header>
                 <div mat-card-avatar class="card">
                 </div>
@@ -23,12 +23,18 @@
                 <button class="btn favorite" mat-button>
                     <mat-icon>favorite_border</mat-icon>
                 </button>
-                <button class="btn add" mat-button>
+                <button class="btn add" *ngIf="food.state == false" mat-button (click)="addToCart(food.name)">
                     <mat-icon>add_shopping_cart</mat-icon>
+                </button>
+                <button class="btn remove" *ngIf="food.state == true" mat-button (click)="removeFromCart(food.name)">
+                    <mat-icon>remove_shopping_cart</mat-icon>
                 </button>
             </mat-card-actions>
         </mat-card>
-    </div>
 
+    </div>
+    <ng-template #empty>
+        <span>Empty food list</span>
+    </ng-template>
 </div>
 <app-footer></app-footer>
