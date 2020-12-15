@@ -6,11 +6,13 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class FoodService {
 
-  public items = new BehaviorSubject<number>(0);
+  public itemsCount = new BehaviorSubject<number>(0);
+  public itemsList = new BehaviorSubject([]);
   constructor() {
 
    }
-   public addToCart(item:number){
-     this.items.next(item);
+   public addToCart(item:number,list){
+     this.itemsCount.next(item);
+     this.itemsList.next(list);
    }
 }

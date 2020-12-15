@@ -6,10 +6,25 @@
         </div>
 
         <div>
-            <button mat-icon-button class="btn btn-cart" mat-raised-button>
-                <span *ngIf="selectedItems >0">{{selectedItems}}</span>
+            <button mat-icon-button class="btn btn-cart" mat-raised-button [matMenuTriggerFor]="menu">
                 <mat-icon>shopping_cart</mat-icon>
             </button>
+            <mat-menu #menu="matMenu">
+                <div *ngIf="list.length>0">
+                    <div mat-menu-item *ngFor="let item of list; let i=index">
+                        <mat-card-header>
+                            <div mat-card-avatar> <img [src]="item.image" class="rounded-img">
+                            </div>
+                            <mat-card-title> <span>#{{i+1}}</span> {{item.name}}</mat-card-title>
+                        </mat-card-header>
+                    </div>
+
+                </div>
+                <div *ngIf="list.length === 0">
+
+                    <span mat-menu-item class="no-item">No item added to card</span>
+                </div>
+            </mat-menu>
         </div>
 
 

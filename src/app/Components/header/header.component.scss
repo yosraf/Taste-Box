@@ -28,4 +28,20 @@
 span{
     font-size: 26px;
 }
-
+.rounded-img {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+}
+mat-card-title{
+    font-size: 13px;
+    color: $blue;
+    span{
+        font-size: 24px;
+        color: $grey;
+    }
+}
+.no-item{
+    font-size: 20px;
+    color: $blue;
+}

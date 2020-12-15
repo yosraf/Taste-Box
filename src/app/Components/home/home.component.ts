@@ -18,8 +18,9 @@ export class HomeComponent implements OnInit {
     "Salads",
     "Grills"
   ];
-  foodList = []
-  selectedItems =0;
+  foodList = [];
+  selectedFoodList = [];
+  selectedItems = 0;
 
   constructor(private service: FoodService) { }
   filter(categorie: string) {
@@ -84,17 +85,18 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.initFoodList()
   }
-  addToCart(name: string){
-    this.selectedItems ++;
-    this.service.addToCart(this.selectedItems);
-  this.foodList.find(food=> food.name === name).state = true;
-
+  addToCart(name: string) {
+    this.selectedItems++;
+    this.selectedFoodList.push(this.foodList.filter(el => el.name === name)[0]);
+    this.service.addToCart(this.selectedItems, this.selectedFoodList);
+    this.foodList.find(food => food.name === name).state = true;
   }
-  removeFromCart(name: string){
-    this.selectedItems --;
-    this.service.addToCart(this.selectedItems);
-  this.foodList.find(food=> food.name === name).state = false;
+  removeFromCart(name: string) {
+    this.selectedItems--;
+    this.selectedFoodList.splice(this.foodList.indexOf(name),1);
 
+    this.service.addToCart(this.selectedItems, this.selectedFoodList);
+    this.foodList.find(food => food.name === name).state = false;
   }
 
 }
